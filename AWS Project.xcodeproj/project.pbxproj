@@ -13,6 +13,7 @@
 		197AC00328211C95008B9E13 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 197AC00128211C95008B9E13 /* Main.storyboard */; };
 		197AC00528211C97008B9E13 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 197AC00428211C97008B9E13 /* Assets.xcassets */; };
 		197AC00828211C97008B9E13 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 197AC00628211C97008B9E13 /* LaunchScreen.storyboard */; };
+		243995BCC47EEB84E63A0C93 /* Pods_AWS_Project.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B87919B7E4B2D4353B1C8221 /* Pods_AWS_Project.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,9 @@
 		197AC00428211C97008B9E13 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		197AC00728211C97008B9E13 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		197AC00928211C97008B9E13 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B3DEB882E9B5CEA090C9824D /* Pods-AWS Project.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AWS Project.release.xcconfig"; path = "Target Support Files/Pods-AWS Project/Pods-AWS Project.release.xcconfig"; sourceTree = "<group>"; };
+		B87919B7E4B2D4353B1C8221 /* Pods_AWS_Project.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AWS_Project.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FBC8D32541AC3085C2ED0A08 /* Pods-AWS Project.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AWS Project.debug.xcconfig"; path = "Target Support Files/Pods-AWS Project/Pods-AWS Project.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +35,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				243995BCC47EEB84E63A0C93 /* Pods_AWS_Project.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +47,8 @@
 			children = (
 				197ABFFA28211C95008B9E13 /* AWS Project */,
 				197ABFF928211C95008B9E13 /* Products */,
+				68FB8AB55CEB799F2492F456 /* Pods */,
+				7EFA91C206EF346B11C1FC33 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -67,6 +74,24 @@
 			path = "AWS Project";
 			sourceTree = "<group>";
 		};
+		68FB8AB55CEB799F2492F456 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				FBC8D32541AC3085C2ED0A08 /* Pods-AWS Project.debug.xcconfig */,
+				B3DEB882E9B5CEA090C9824D /* Pods-AWS Project.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		7EFA91C206EF346B11C1FC33 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B87919B7E4B2D4353B1C8221 /* Pods_AWS_Project.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -74,9 +99,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 197AC00C28211C97008B9E13 /* Build configuration list for PBXNativeTarget "AWS Project" */;
 			buildPhases = (
+				8C33DC40F9E9DA2342327B10 /* [CP] Check Pods Manifest.lock */,
 				197ABFF428211C95008B9E13 /* Sources */,
 				197ABFF528211C95008B9E13 /* Frameworks */,
 				197ABFF628211C95008B9E13 /* Resources */,
+				81B42CA8512AC78E267DB494 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -132,6 +159,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		81B42CA8512AC78E267DB494 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AWS Project/Pods-AWS Project-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AWS Project/Pods-AWS Project-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AWS Project/Pods-AWS Project-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8C33DC40F9E9DA2342327B10 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-AWS Project-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		197ABFF428211C95008B9E13 /* Sources */ = {
@@ -282,6 +351,7 @@
 		};
 		197AC00D28211C97008B9E13 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FBC8D32541AC3085C2ED0A08 /* Pods-AWS Project.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -310,6 +380,7 @@
 		};
 		197AC00E28211C97008B9E13 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B3DEB882E9B5CEA090C9824D /* Pods-AWS Project.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

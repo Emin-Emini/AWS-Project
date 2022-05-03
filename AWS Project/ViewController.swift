@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import AWSCognito
+import AWSS3
 
 class ViewController: UIViewController {
 
