@@ -20,6 +20,8 @@ class AddFileViewController: UIViewController {
     var contentUrl: URL!
     var s3Url: URL!
     
+    var file: String!
+    
     // MARK: - View
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,7 +40,8 @@ class AddFileViewController: UIViewController {
     }
     
     @IBAction func deleteContent(_ sender: Any) {
-        deleteFile(with: "Stanford-University-Logo", type: "png")
+        let fileArr = file.components(separatedBy: ".")
+        deleteFile(with: fileArr[0], type: fileArr[1])
     }
 }
 
@@ -59,6 +62,7 @@ extension AddFileViewController {
 extension AddFileViewController {
     func uploadFile(with resource: String, type: String) {
         let key = "\(resource).\(type)"
+        file = key
         let localImagePath = Bundle.main.path(forResource: resource, ofType: type)!
         let localImageUrl = URL(fileURLWithPath: localImagePath)
         

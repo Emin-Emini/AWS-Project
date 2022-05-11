@@ -204,7 +204,98 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="20" y="64"/>
+            <point key="canvasLocation" x="339" y="-177"/>
+        </scene>
+        <!--File Details View Controller-->
+        <scene sceneID="0h9-Wf-YaC">
+            <objects>
+                <viewController storyboardIdentifier="FileDetailsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="VkV-ED-cLN" customClass="FileDetailsViewController" customModule="AWS_Project" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="4P0-w0-XDt">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="EBX-gm-2bu">
+                                <rect key="frame" x="32" y="76" width="350" height="350"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="350" id="57V-Pf-kqm"/>
+                                </constraints>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="lJP-pY-EPK">
+                                <rect key="frame" x="32" y="458" width="350" height="172"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Oef-bt-ccD">
+                                        <rect key="frame" x="0.0" y="0.0" width="350" height="74"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LDT-06-pOc">
+                                                <rect key="frame" x="0.0" y="22" width="350" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="RCq-IS-FFM"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="LDT-06-pOc" secondAttribute="bottom" constant="22" id="Ibr-ip-t4G"/>
+                                            <constraint firstItem="LDT-06-pOc" firstAttribute="top" secondItem="Oef-bt-ccD" secondAttribute="top" constant="22" id="Px5-Ac-Em4"/>
+                                            <constraint firstItem="LDT-06-pOc" firstAttribute="leading" secondItem="Oef-bt-ccD" secondAttribute="leading" id="eQ2-R2-5Ur"/>
+                                            <constraint firstAttribute="trailing" secondItem="LDT-06-pOc" secondAttribute="trailing" id="xuq-66-aei"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VEz-bm-50o">
+                                        <rect key="frame" x="0.0" y="74" width="350" height="32"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="32" id="u2r-jT-z1D"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bkG-Fs-Nc2">
+                                        <rect key="frame" x="0.0" y="106" width="350" height="66"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QRa-mB-lUL">
+                                                <rect key="frame" x="32" y="8" width="286" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="trD-Tx-cwp"/>
+                                                </constraints>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="Delete"/>
+                                                <connections>
+                                                    <action selector="deleteContent:" destination="VkV-ED-cLN" eventType="touchUpInside" id="POF-oL-kEO"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="QRa-mB-lUL" secondAttribute="trailing" constant="32" id="MUf-gl-Ggm"/>
+                                            <constraint firstItem="QRa-mB-lUL" firstAttribute="top" secondItem="bkG-Fs-Nc2" secondAttribute="top" constant="8" id="S18-hK-u6X"/>
+                                            <constraint firstItem="QRa-mB-lUL" firstAttribute="leading" secondItem="bkG-Fs-Nc2" secondAttribute="leading" constant="32" id="oDV-GJ-fYW"/>
+                                            <constraint firstAttribute="bottom" secondItem="QRa-mB-lUL" secondAttribute="bottom" constant="8" id="pfj-12-TIo"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="9Vz-qh-MWC"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="9Vz-qh-MWC" firstAttribute="trailing" secondItem="EBX-gm-2bu" secondAttribute="trailing" constant="32" id="7YU-IU-04U"/>
+                            <constraint firstItem="EBX-gm-2bu" firstAttribute="leading" secondItem="9Vz-qh-MWC" secondAttribute="leading" constant="32" id="F8J-Rz-oSL"/>
+                            <constraint firstItem="lJP-pY-EPK" firstAttribute="leading" secondItem="9Vz-qh-MWC" secondAttribute="leading" constant="32" id="MNn-nd-Zt9"/>
+                            <constraint firstItem="lJP-pY-EPK" firstAttribute="top" secondItem="EBX-gm-2bu" secondAttribute="bottom" constant="32" id="Ngn-xJ-HXB"/>
+                            <constraint firstItem="9Vz-qh-MWC" firstAttribute="trailing" secondItem="lJP-pY-EPK" secondAttribute="trailing" constant="32" id="OqV-aT-Vtz"/>
+                            <constraint firstItem="EBX-gm-2bu" firstAttribute="top" secondItem="9Vz-qh-MWC" secondAttribute="top" constant="32" id="VMJ-ds-52a"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="fileNameLabel" destination="LDT-06-pOc" id="hNS-CA-3yI"/>
+                        <outlet property="imageView" destination="EBX-gm-2bu" id="fIY-eJ-xVc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ogK-kt-4KL" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="338" y="506"/>
         </scene>
     </scenes>
     <resources>

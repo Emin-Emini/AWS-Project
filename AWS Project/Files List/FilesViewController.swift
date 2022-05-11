@@ -20,12 +20,15 @@ class FilesViewController: UIViewController {
     var s3Url: URL!
     var s3: AWSS3!
     var listOfObjects: [String] = []
+    
+    let refreshControl = UIRefreshControl()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         
+        setUpRefreshAction()
         setupAWSConfiguration()
         loadAWSBucketObjects()
     }
@@ -63,6 +66,7 @@ extension FilesViewController {
                     }
                     DispatchQueue.main.async {
                         self.awsObjectsTableView.reloadData()
+                        self.refreshControl.endRefreshing()
                     }
                 } else {
                     print("There is nothing in the bucket")
@@ -72,6 +76,19 @@ extension FilesViewController {
                 return nil
             }
         }
+    }
+}
+
+// MARK: - Refresh Functions
+extension FilesViewController {
+    func setUpRefreshAction() {
+        refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        refreshControl.addTarget(self, action: #selector(self.refresh(_:)), for: .valueChanged)
+        awsObjectsTableView.addSubview(refreshControl)
+    }
+    
+    @objc func refresh(_ sender: AnyObject) {
+        loadAWSBucketObjects()
     }
 }
 
@@ -99,12 +116,14 @@ extension FilesViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        
+        let fileName = listOfObjects[indexPath.row]
 //
 //        let feedPost = apiController.feedList[indexPath.row]
-//        let postVC: PostViewController =
-//            self.storyboard!.instantiateViewController(withIdentifier: "PostViewController") as! PostViewController
-//        postVC.post = feedPost
-//
-//        self.present(postVC, animated: true, completion: nil)
+        let fileVC: FileDetailsViewController =
+            self.storyboard!.instantiateViewController(withIdentifier: "FileDetailsViewController") as! FileDetailsViewController
+        fileVC.file = fileName
+
+        self.present(fileVC, animated: true, completion: nil)
     }
 }

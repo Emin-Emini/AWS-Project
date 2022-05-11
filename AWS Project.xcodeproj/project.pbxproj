@@ -18,6 +18,7 @@
 		19878FAE282BD49D0032D153 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19878FAD282BD49D0032D153 /* Config.swift */; };
 		19878FB0282BF13F0032D153 /* FilesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19878FAF282BF13F0032D153 /* FilesViewController.swift */; };
 		19878FB2282BF79F0032D153 /* FileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19878FB1282BF79F0032D153 /* FileTableViewCell.swift */; };
+		19878FB6282BFEC40032D153 /* FileDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19878FB5282BFEC40032D153 /* FileDetailsViewController.swift */; };
 		243995BCC47EEB84E63A0C93 /* Pods_AWS_Project.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B87919B7E4B2D4353B1C8221 /* Pods_AWS_Project.framework */; };
 /* End PBXBuildFile section */
 
@@ -35,6 +36,7 @@
 		19878FAD282BD49D0032D153 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		19878FAF282BF13F0032D153 /* FilesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilesViewController.swift; sourceTree = "<group>"; };
 		19878FB1282BF79F0032D153 /* FileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileTableViewCell.swift; sourceTree = "<group>"; };
+		19878FB5282BFEC40032D153 /* FileDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileDetailsViewController.swift; sourceTree = "<group>"; };
 		B3DEB882E9B5CEA090C9824D /* Pods-AWS Project.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AWS Project.release.xcconfig"; path = "Target Support Files/Pods-AWS Project/Pods-AWS Project.release.xcconfig"; sourceTree = "<group>"; };
 		B87919B7E4B2D4353B1C8221 /* Pods_AWS_Project.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AWS_Project.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FBC8D32541AC3085C2ED0A08 /* Pods-AWS Project.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AWS Project.debug.xcconfig"; path = "Target Support Files/Pods-AWS Project/Pods-AWS Project.debug.xcconfig"; sourceTree = "<group>"; };
@@ -76,9 +78,9 @@
 				197ABFFB28211C95008B9E13 /* AppDelegate.swift */,
 				197ABFFD28211C95008B9E13 /* SceneDelegate.swift */,
 				19878FAD282BD49D0032D153 /* Config.swift */,
-				19878FAF282BF13F0032D153 /* FilesViewController.swift */,
-				19878FB1282BF79F0032D153 /* FileTableViewCell.swift */,
-				197ABFFF28211C95008B9E13 /* AddFileViewController.swift */,
+				19878FB3282BFE960032D153 /* Files List */,
+				19878FB7282BFEC80032D153 /* Files Details */,
+				19878FB4282BFE9C0032D153 /* Add New File */,
 				197AC00128211C95008B9E13 /* Main.storyboard */,
 				197AC00428211C97008B9E13 /* Assets.xcassets */,
 				197AC00628211C97008B9E13 /* LaunchScreen.storyboard */,
@@ -87,6 +89,31 @@
 				197AC00928211C97008B9E13 /* Info.plist */,
 			);
 			path = "AWS Project";
+			sourceTree = "<group>";
+		};
+		19878FB3282BFE960032D153 /* Files List */ = {
+			isa = PBXGroup;
+			children = (
+				19878FAF282BF13F0032D153 /* FilesViewController.swift */,
+				19878FB1282BF79F0032D153 /* FileTableViewCell.swift */,
+			);
+			path = "Files List";
+			sourceTree = "<group>";
+		};
+		19878FB4282BFE9C0032D153 /* Add New File */ = {
+			isa = PBXGroup;
+			children = (
+				197ABFFF28211C95008B9E13 /* AddFileViewController.swift */,
+			);
+			path = "Add New File";
+			sourceTree = "<group>";
+		};
+		19878FB7282BFEC80032D153 /* Files Details */ = {
+			isa = PBXGroup;
+			children = (
+				19878FB5282BFEC40032D153 /* FileDetailsViewController.swift */,
+			);
+			path = "Files Details";
 			sourceTree = "<group>";
 		};
 		68FB8AB55CEB799F2492F456 /* Pods */ = {
@@ -229,6 +256,7 @@
 				197ABFFC28211C95008B9E13 /* AppDelegate.swift in Sources */,
 				19878FB0282BF13F0032D153 /* FilesViewController.swift in Sources */,
 				197ABFFE28211C95008B9E13 /* SceneDelegate.swift in Sources */,
+				19878FB6282BFEC40032D153 /* FileDetailsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
