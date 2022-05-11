@@ -113,7 +113,7 @@
                                 </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="7L0-SN-piM">
-                                <rect key="frame" x="32" y="458" width="350" height="198"/>
+                                <rect key="frame" x="32" y="458" width="350" height="264"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CNV-YM-zgC">
                                         <rect key="frame" x="0.0" y="0.0" width="350" height="66"/>
@@ -138,8 +138,31 @@
                                             <constraint firstAttribute="trailing" secondItem="0iA-6b-uCi" secondAttribute="trailing" constant="32" id="yig-TA-7zs"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6ne-DT-VzR">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yMg-jC-ZGh">
                                         <rect key="frame" x="0.0" y="66" width="350" height="66"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Gf-Ri-t64">
+                                                <rect key="frame" x="32" y="8" width="286" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="dNY-vb-ry2"/>
+                                                </constraints>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="Upload from Library"/>
+                                                <connections>
+                                                    <action selector="uploadFromLibrary:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lf5-iY-Mv2"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstItem="3Gf-Ri-t64" firstAttribute="top" secondItem="yMg-jC-ZGh" secondAttribute="top" constant="8" id="DrX-NS-npG"/>
+                                            <constraint firstAttribute="bottom" secondItem="3Gf-Ri-t64" secondAttribute="bottom" constant="8" id="IbD-oE-aKL"/>
+                                            <constraint firstAttribute="trailing" secondItem="3Gf-Ri-t64" secondAttribute="trailing" constant="32" id="Rsb-zo-3Eb"/>
+                                            <constraint firstItem="3Gf-Ri-t64" firstAttribute="leading" secondItem="yMg-jC-ZGh" secondAttribute="leading" constant="32" id="vYx-RZ-vjO"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6ne-DT-VzR">
+                                        <rect key="frame" x="0.0" y="132" width="350" height="66"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HZO-VS-dMV">
                                                 <rect key="frame" x="32" y="8" width="286" height="50"/>
@@ -162,7 +185,7 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o0m-9c-35T">
-                                        <rect key="frame" x="0.0" y="132" width="350" height="66"/>
+                                        <rect key="frame" x="0.0" y="198" width="350" height="66"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sws-xw-isq">
                                                 <rect key="frame" x="32" y="8" width="286" height="50"/>

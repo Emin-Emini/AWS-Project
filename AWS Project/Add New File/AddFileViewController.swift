@@ -35,6 +35,10 @@ class AddFileViewController: UIViewController {
         uploadFile(with: "Stanford-University-Logo", type: "png")
     }
     
+    @IBAction func uploadFromLibrary(_ sender: Any) {
+        showAlbum()
+    }
+    
     @IBAction func showContent(_ sender: Any) {
         showContent()
     }
@@ -42,6 +46,41 @@ class AddFileViewController: UIViewController {
     @IBAction func deleteContent(_ sender: Any) {
         let fileArr = file.components(separatedBy: ".")
         deleteFile(with: fileArr[0], type: fileArr[1])
+    }
+}
+
+// MARK: - Select Photo from Library
+extension AddFileViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    func showAlbum() {
+        let picker = UIImagePickerController()
+        picker.sourceType = .photoLibrary
+        picker.delegate = self
+        picker.allowsEditing = true
+
+        present(picker, animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        //print("\(info)")
+        if let image = info[UIImagePickerController.InfoKey(rawValue: "UIImagePickerControllerEditedImage")] as? UIImage {
+            imageView.image = image
+            
+            guard let imageURL = NSURL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent("TempImage.png") else {
+                return
+            }
+
+            let pngData = image.pngData()
+            do {
+                try pngData?.write(to: imageURL)
+                print(imageURL)
+            } catch { }
+        }
+        picker.dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true, completion: nil)
     }
 }
 
