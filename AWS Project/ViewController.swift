@@ -6,11 +6,21 @@
 //
 
 import UIKit
+import AVKit
+import AVFoundation
 import AWSCognito
 import AWSS3
 
 class ViewController: UIViewController {
 
+    // MARK: - Outlet
+    @IBOutlet weak var imageView: UIImageView!
+    
+    // MARK: - Properties
+    var contentUrl: URL!
+    var s3Url: URL!
+    
+    // MARK: - View
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -18,7 +28,18 @@ class ViewController: UIViewController {
         setupAWSConfiguration()
     }
     
+    // MARK: - Actions
+    @IBAction func uploadSingle(_ sender: Any) {
+        uploadFile(with: "Stanford-University-Logo", type: "png")
+    }
     
+    @IBAction func showContent(_ sender: Any) {
+        showContent()
+    }
+    
+    @IBAction func deleteContent(_ sender: Any) {
+        deleteFile(with: "Stanford-University-Logo", type: "png")
+    }
 }
 
 // MARK: - Configure AWS
@@ -30,6 +51,7 @@ extension ViewController {
         let configuration = AWSServiceConfiguration(region:.EUCentral1, credentialsProvider:credentialsProvider)
 
         AWSServiceManager.default().defaultServiceConfiguration = configuration
+        s3Url = AWSS3.default().configuration.endpoint.url
     }
 }
 
@@ -37,5 +59,77 @@ extension ViewController {
 extension ViewController {
     func uploadFile(with resource: String, type: String) {
         let key = "\(resource).\(type)"
+        let localImagePath = Bundle.main.path(forResource: resource, ofType: type)!
+        let localImageUrl = URL(fileURLWithPath: localImagePath)
+        
+        let request = AWSS3TransferManagerUploadRequest()!
+        request.bucket = bucketName
+        request.key = key
+        request.body = localImageUrl
+        request.acl = .publicReadWrite
+        
+        let transferManager = AWSS3TransferManager.default()
+        transferManager.upload(request).continueWith(executor: AWSExecutor.mainThread()) { (task) -> Any? in
+            if let error = task.error {
+                print(error)
+            }
+            if task.result != nil {
+                print("Uploaded \(key)")
+                let contentUrl = self.s3Url.appendingPathComponent(bucketName).appendingPathComponent(key)
+                self.contentUrl = contentUrl
+            }
+            return nil
+        }
+    }
+}
+
+// MARK: - Delete To AWS
+extension ViewController {
+    func deleteFile(with resource: String, type: String) {
+        let key = "\(resource).\(type)"
+        let localImagePath = Bundle.main.path(forResource: resource, ofType: type)!
+        let localImageUrl = URL(fileURLWithPath: localImagePath)
+        
+        let request = AWSS3DeleteObjectRequest()!
+        request.bucket = bucketName
+        request.key = key
+        
+        let s3Service = AWSS3.default()
+        let deleteObjectRequest = AWSS3DeleteObjectRequest()!
+        deleteObjectRequest.bucket = bucketName
+        deleteObjectRequest.key = key
+        
+        s3Service.deleteObject(deleteObjectRequest).continueWith { (task:AWSTask) -> AnyObject? in
+            if let error = task.error {
+                print("Error occurred: \(error)")
+                return nil
+            }
+            print("Bucket deleted successfully.")
+            return nil
+        }
+
+    }
+}
+
+// MARK: - Load Content
+extension ViewController {
+    func showContent() {
+        guard contentUrl != nil else {
+            print("There is nothing to show.")
+            return
+        }
+        if contentUrl.path.contains("mov") {
+            let player = AVPlayer(url: contentUrl)
+            let playerViewController = AVPlayerViewController()
+            playerViewController.player = player
+            present(playerViewController, animated: true, completion: nil)
+        } else {
+            do {
+                let data = try Data(contentsOf: contentUrl)
+                imageView.image = UIImage(data: data)
+            } catch {
+                
+            }
+        }
     }
 }

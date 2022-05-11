@@ -13,6 +13,9 @@
 		197AC00328211C95008B9E13 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 197AC00128211C95008B9E13 /* Main.storyboard */; };
 		197AC00528211C97008B9E13 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 197AC00428211C97008B9E13 /* Assets.xcassets */; };
 		197AC00828211C97008B9E13 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 197AC00628211C97008B9E13 /* LaunchScreen.storyboard */; };
+		19878FAA282BD3420032D153 /* Stanford-University-Logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 19878FA9282BD3420032D153 /* Stanford-University-Logo.png */; };
+		19878FAC282BD36B0032D153 /* University-of-London-Logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 19878FAB282BD36A0032D153 /* University-of-London-Logo.png */; };
+		19878FAE282BD49D0032D153 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19878FAD282BD49D0032D153 /* Config.swift */; };
 		243995BCC47EEB84E63A0C93 /* Pods_AWS_Project.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B87919B7E4B2D4353B1C8221 /* Pods_AWS_Project.framework */; };
 /* End PBXBuildFile section */
 
@@ -25,6 +28,9 @@
 		197AC00428211C97008B9E13 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		197AC00728211C97008B9E13 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		197AC00928211C97008B9E13 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		19878FA9282BD3420032D153 /* Stanford-University-Logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Stanford-University-Logo.png"; sourceTree = "<group>"; };
+		19878FAB282BD36A0032D153 /* University-of-London-Logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "University-of-London-Logo.png"; sourceTree = "<group>"; };
+		19878FAD282BD49D0032D153 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		B3DEB882E9B5CEA090C9824D /* Pods-AWS Project.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AWS Project.release.xcconfig"; path = "Target Support Files/Pods-AWS Project/Pods-AWS Project.release.xcconfig"; sourceTree = "<group>"; };
 		B87919B7E4B2D4353B1C8221 /* Pods_AWS_Project.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AWS_Project.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FBC8D32541AC3085C2ED0A08 /* Pods-AWS Project.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AWS Project.debug.xcconfig"; path = "Target Support Files/Pods-AWS Project/Pods-AWS Project.debug.xcconfig"; sourceTree = "<group>"; };
@@ -65,10 +71,13 @@
 			children = (
 				197ABFFB28211C95008B9E13 /* AppDelegate.swift */,
 				197ABFFD28211C95008B9E13 /* SceneDelegate.swift */,
+				19878FAD282BD49D0032D153 /* Config.swift */,
 				197ABFFF28211C95008B9E13 /* ViewController.swift */,
 				197AC00128211C95008B9E13 /* Main.storyboard */,
 				197AC00428211C97008B9E13 /* Assets.xcassets */,
 				197AC00628211C97008B9E13 /* LaunchScreen.storyboard */,
+				19878FA9282BD3420032D153 /* Stanford-University-Logo.png */,
+				19878FAB282BD36A0032D153 /* University-of-London-Logo.png */,
 				197AC00928211C97008B9E13 /* Info.plist */,
 			);
 			path = "AWS Project";
@@ -80,7 +89,6 @@
 				FBC8D32541AC3085C2ED0A08 /* Pods-AWS Project.debug.xcconfig */,
 				B3DEB882E9B5CEA090C9824D /* Pods-AWS Project.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -153,7 +161,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				197AC00828211C97008B9E13 /* LaunchScreen.storyboard in Resources */,
+				19878FAA282BD3420032D153 /* Stanford-University-Logo.png in Resources */,
 				197AC00528211C97008B9E13 /* Assets.xcassets in Resources */,
+				19878FAC282BD36B0032D153 /* University-of-London-Logo.png in Resources */,
 				197AC00328211C95008B9E13 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -208,6 +218,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				197AC00028211C95008B9E13 /* ViewController.swift in Sources */,
+				19878FAE282BD49D0032D153 /* Config.swift in Sources */,
 				197ABFFC28211C95008B9E13 /* AppDelegate.swift in Sources */,
 				197ABFFE28211C95008B9E13 /* SceneDelegate.swift in Sources */,
 			);
