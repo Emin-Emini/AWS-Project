@@ -127,9 +127,7 @@ extension AddFileViewController {
             do {
                 let data = try Data(contentsOf: contentUrl)
                 imageView.image = UIImage(data: data)
-            } catch {
-                
-            }
+            } catch {}
         }
     }
 }
