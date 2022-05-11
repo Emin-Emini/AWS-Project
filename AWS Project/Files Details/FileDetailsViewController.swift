@@ -37,6 +37,10 @@ class FileDetailsViewController: UIViewController {
         showContent()
     }
     
+    @IBAction func saveContent(_ sender: Any) {
+        UIImageWriteToSavedPhotosAlbum(imageView.image!, nil, nil, nil)
+    }
+    
     @IBAction func deleteContent(_ sender: Any) {
         let fileArr = file.components(separatedBy: ".")
         deleteFile(with: fileArr[0], type: fileArr[1])

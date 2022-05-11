@@ -21,6 +21,7 @@ class AddFileViewController: UIViewController {
     var s3Url: URL!
     
     var file: String!
+    var fileUrl: URL!
     
     // MARK: - View
     override func viewDidLoad() {
@@ -66,15 +67,21 @@ extension AddFileViewController: UIImagePickerControllerDelegate, UINavigationCo
         if let image = info[UIImagePickerController.InfoKey(rawValue: "UIImagePickerControllerEditedImage")] as? UIImage {
             imageView.image = image
             
-            guard let imageURL = NSURL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent("TempImage.png") else {
-                return
-            }
+            let url = URL(fileURLWithPath: NSTemporaryDirectory(), isDirectory: true)
+                .appendingPathComponent("pkm", isDirectory: false)
+                .appendingPathExtension("jpg")
 
-            let pngData = image.pngData()
-            do {
-                try pngData?.write(to: imageURL)
-                print(imageURL)
-            } catch { }
+            // Then write to disk
+            if let data = image.jpegData(compressionQuality: 0.8) {
+                do {
+                    try data.write(to: url)
+                    print(url)
+                    fileUrl = url
+                    uploadLibraryFile(url: fileUrl)
+                } catch {
+                    print("Handle the error, i.e. disk can be full")
+                }
+            }
         }
         picker.dismiss(animated: true, completion: nil)
     }
@@ -119,6 +126,31 @@ extension AddFileViewController {
             if task.result != nil {
                 print("Uploaded \(key)")
                 let contentUrl = self.s3Url.appendingPathComponent(bucketName).appendingPathComponent(key)
+                self.contentUrl = contentUrl
+            }
+            return nil
+        }
+    }
+    
+    func uploadLibraryFile(url: URL) {
+        let fileArr = url.path.components(separatedBy: "/")
+        let key = fileArr.last
+        let localImageUrl = url
+        
+        let request = AWSS3TransferManagerUploadRequest()!
+        request.bucket = bucketName
+        request.key = key
+        request.body = localImageUrl
+        request.acl = .publicReadWrite
+        
+        let transferManager = AWSS3TransferManager.default()
+        transferManager.upload(request).continueWith(executor: AWSExecutor.mainThread()) { (task) -> Any? in
+            if let error = task.error {
+                print(error)
+            }
+            if task.result != nil {
+                print("Uploaded \(key)")
+                let contentUrl = self.s3Url.appendingPathComponent(bucketName).appendingPathComponent(key!)
                 self.contentUrl = contentUrl
             }
             return nil
