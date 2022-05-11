@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  AddFileViewController.swift
 //  AWS Project
 //
 //  Created by Emin Emini on 03.05.2022..
@@ -11,7 +11,7 @@ import AVFoundation
 import AWSCognito
 import AWSS3
 
-class ViewController: UIViewController {
+class AddFileViewController: UIViewController {
 
     // MARK: - Outlet
     @IBOutlet weak var imageView: UIImageView!
@@ -43,7 +43,7 @@ class ViewController: UIViewController {
 }
 
 // MARK: - Configure AWS
-extension ViewController {
+extension AddFileViewController {
     func setupAWSConfiguration() {
         let credentialsProvider = AWSCognitoCredentialsProvider(regionType:.EUCentral1,
            identityPoolId:"eu-central-1:279bc153-1080-46a8-9bd1-eff2807579ee")
@@ -56,7 +56,7 @@ extension ViewController {
 }
 
 // MARK: - Upload To AWS
-extension ViewController {
+extension AddFileViewController {
     func uploadFile(with resource: String, type: String) {
         let key = "\(resource).\(type)"
         let localImagePath = Bundle.main.path(forResource: resource, ofType: type)!
@@ -84,7 +84,7 @@ extension ViewController {
 }
 
 // MARK: - Delete To AWS
-extension ViewController {
+extension AddFileViewController {
     func deleteFile(with resource: String, type: String) {
         let key = "\(resource).\(type)"
         let localImagePath = Bundle.main.path(forResource: resource, ofType: type)!
@@ -112,7 +112,7 @@ extension ViewController {
 }
 
 // MARK: - Load Content
-extension ViewController {
+extension AddFileViewController {
     func showContent() {
         guard contentUrl != nil else {
             print("There is nothing to show.")
