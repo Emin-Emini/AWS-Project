@@ -43,6 +43,7 @@ class FileDetailsViewController: UIViewController {
     
     @IBAction func deleteContent(_ sender: Any) {
         let fileArr = file.components(separatedBy: ".")
+        print(fileArr)
         deleteFile(with: fileArr[0], type: fileArr[1])
     }
 
@@ -65,8 +66,9 @@ extension FileDetailsViewController {
 extension FileDetailsViewController {
     func deleteFile(with resource: String, type: String) {
         let key = "\(resource).\(type)"
-        let localImagePath = Bundle.main.path(forResource: resource, ofType: type)!
-        let localImageUrl = URL(fileURLWithPath: localImagePath)
+        let localImagePath = Bundle.main.path(forResource: resource, ofType: type)
+        print(localImagePath)
+        let localImageUrl = URL(fileURLWithPath: localImagePath ?? "/Users/eminemini/Library/Developer/CoreSimulator/Devices/BFC8700B-1BAC-4B45-8FDE-7DBF635911F6/data/Containers/Bundle/Application/69F069C9-D8E2-42C5-920B-95C32B00E249/AWS Project.app/\(key)")
         
         let request = AWSS3DeleteObjectRequest()!
         request.bucket = bucketName

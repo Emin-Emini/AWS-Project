@@ -70,6 +70,11 @@ extension FilesViewController {
                     }
                 } else {
                     print("There is nothing in the bucket")
+                    DispatchQueue.main.async {
+                        self.listOfObjects.removeAll()
+                        self.awsObjectsTableView.reloadData()
+                        self.refreshControl.endRefreshing()
+                    }
                 }
                 
                 
